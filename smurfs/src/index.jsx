@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Paper } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import "fontsource-roboto";
 import {applyMiddleware, createStore} from "redux";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 import "./index.css";
@@ -10,7 +13,17 @@ import reducer from "./reducer";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
+const darkTheme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ThemeProvider theme={darkTheme}>
+      <Paper style={{height: "100vh"}}>
+        <App />
+      </Paper>
+    </ThemeProvider>
   </Provider>, document.getElementById("root"));
