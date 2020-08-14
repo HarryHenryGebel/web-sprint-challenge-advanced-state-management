@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 
 import {getSmurfs} from "../actions";
+import Smurf from "./Smurf";
 
 function Smurfs(props) {
   const {error, getSmurfs, initialized, isFetching, smurfs} = props;
@@ -13,7 +14,7 @@ function Smurfs(props) {
   if (initialized && !isFetching && !error)
     return (
       <>
-        {smurfs.map(smurf => <div/>)}
+        {smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf}/>)}
       </>
     );
   else if (!error)
