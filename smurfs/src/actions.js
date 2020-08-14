@@ -24,7 +24,7 @@ export function addSmurf(smurf) {
       }
     }
     dispatch({type: ADD_SMURF});
-    _addSmurfs();
+    _addSmurf();
   };
 }
 
