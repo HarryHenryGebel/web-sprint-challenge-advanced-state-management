@@ -9,7 +9,6 @@ import {connect} from "react-redux";
 
 import {addSmurf} from "../actions.js";
 
-
 const initialValues = {
   name: "",
   age: "",
@@ -17,7 +16,7 @@ const initialValues = {
 };
 
 function NewSmurfForm (props) {
-  const {error, addSmurf, isFetching} = props,
+  const {error, addSmurf, isPosting} = props,
         [values, setValues] = useState(initialValues);
 
   function onChange(event) {
@@ -27,7 +26,7 @@ function NewSmurfForm (props) {
   }
 
 
-  if (!isFetching && !error)
+  if (!isPosting && !error)
     return (
       <Box m={1}>
         <Card variant="outlined">
@@ -76,7 +75,7 @@ function NewSmurfForm (props) {
                     }}
                     startIcon={<AddCircleOutlineOutlinedIcon />}
                     variant="contained">
-              Search
+              Add
             </Button>
           </Box>
 
