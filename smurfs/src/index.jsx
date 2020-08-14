@@ -22,7 +22,7 @@ const darkTheme = createMuiTheme({
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={darkTheme}>
-      <Paper style={{height: "100vh"}}>
+      <Paper style={{height: "95vh"}}>
         <App />
       </Paper>
     </ThemeProvider>

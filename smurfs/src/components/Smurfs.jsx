@@ -1,4 +1,7 @@
 import React from "react";
+import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 import {connect} from "react-redux";
 
 import {getSmurfs} from "../actions";
@@ -13,9 +16,14 @@ function Smurfs(props) {
 
   if (initialized && !isFetching && !error)
     return (
-      <>
-        {smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf}/>)}
-      </>
+      <Box m={1}>
+        <Card variant="outlined">
+          <Typography variant="h2">
+            Residents
+          </Typography>
+          {smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf}/>)}
+        </Card>
+      </Box>
     );
   else if (!error)
     return (
