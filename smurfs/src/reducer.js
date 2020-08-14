@@ -2,10 +2,10 @@ import {GET_SMURFS, GET_SMURFS_FAILURE, GET_SMURFS_SUCCESS} from "./actions";
 
 
 export const initialState = {
-  smurfs: [],
+  error: null,
+  initialized: false,
   isFetching: false,
-  error: "",
-  initialized: false
+  smurfs: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -13,6 +13,7 @@ export default function reducer(state = initialState, action) {
   case GET_SMURFS:
     return {...state,
             isFetching: true,
+            initialized: true,
             error: null};
   case GET_SMURFS_FAILURE:
     return {...state,
@@ -23,7 +24,7 @@ export default function reducer(state = initialState, action) {
             isFetching: false,
             smurfs: action.smurfs};
   default:
-    // return state if it is called by redux, otherwise throw error
+    // return state if called by redux, otherwise throw error
     if (action.type.includes("@@redux"))
       return state;
     else
