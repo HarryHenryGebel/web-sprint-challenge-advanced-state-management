@@ -11,8 +11,8 @@ export default function App () {
           <Typography variant="h1">
             Smurf Village Blue Pages
           </Typography>
-          <NewSmurfForm/>
           <Smurfs/>
+          <NewSmurfForm/>
     </Box>
   );
 }
