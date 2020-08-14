@@ -14,9 +14,8 @@ export function addSmurf(smurf) {
       try {
         const id = requester.createUniqueID();
         await requester.post("http://localhost:3333/smurfs", id, smurf);
-        debugger;
-        // dispatch({type: ADD_SMURF_SUCCESS,
-        //           smurf: requester.response(id).data});
+        dispatch({type: ADD_SMURF_SUCCESS,
+                  smurfs: requester.response(id).data});
       }
       catch (error) {
         console.log(error);
