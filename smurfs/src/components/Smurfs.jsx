@@ -5,7 +5,6 @@ import {getSmurfs} from "../actions";
 
 function Smurfs(props) {
   const {error, getSmurfs, initialized, isFetching, smurfs} = props;
-  debugger;
 
   if (!initialized) {
     getSmurfs();
