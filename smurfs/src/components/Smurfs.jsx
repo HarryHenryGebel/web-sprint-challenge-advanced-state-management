@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import {getSmurfs} from "../actions";
 
-function Smurfs (props) {
+function Smurfs(props) {
   const {error, getSmurfs, initialized, isFetching, smurfs} = props;
   debugger;
 
@@ -32,10 +32,10 @@ function Smurfs (props) {
 
 function mapStateToProps (state) {
   return {
-  error: state.error,
-  initialized: state.initialized,
-  isFetching: state.isFetching,
-  smurfs: state.smurfs
+    error: state.error,
+    initialized: state.initialized,
+    isFetching: state.isFetching,
+    smurfs: state.smurfs
   };
 }
 
