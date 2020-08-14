@@ -7,9 +7,11 @@ import {ADD_SMURF,
 
 
 export const initialState = {
-  error: null,
+  getError: null,
   initialized: false,
   isFetching: false,
+  isPosting: false,
+  postError: null,
   smurfs: []
 };
 
@@ -17,25 +19,24 @@ export default function reducer(state = initialState, action) {
   switch(action.type) {
   case ADD_SMURF:
     return {...state,
-            isFetching: true,
-            error: null};
+            isPosting: true,
+            postError: null};
   case ADD_SMURF_FAILURE:
     return {...state,
-            isFetching: false,
-            error: action.error};
+            isPosting: false,
+            postError: action.error};
   case ADD_SMURF_SUCCESS:
     return {...state,
-            isFetching: false,
-            smurfs: [...state.smurfs, action.smurf]};
+            isPosting: false};
   case GET_SMURFS:
     return {...state,
             isFetching: true,
             initialized: true,
-            error: null};
+            getError: null};
   case GET_SMURFS_FAILURE:
     return {...state,
             isFetching: false,
-            error: action.error};
+            getError: action.error};
   case GET_SMURFS_SUCCESS:
     return {...state,
             isFetching: false,
