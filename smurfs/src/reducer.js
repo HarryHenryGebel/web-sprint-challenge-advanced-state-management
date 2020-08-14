@@ -1,6 +1,6 @@
-import {ADD_SMURFS,
-        ADD_SMURFS_FAILURE,
-        ADD_SMURFS_SUCCESS,
+import {ADD_SMURF,
+        ADD_SMURF_FAILURE,
+        ADD_SMURF_SUCCESS,
         GET_SMURFS,
         GET_SMURFS_FAILURE,
         GET_SMURFS_SUCCESS} from "./actions";
@@ -15,15 +15,15 @@ export const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-  case ADD_SMURFS:
+  case ADD_SMURF:
     return {...state,
             isFetching: true,
             error: null};
-  case ADD_SMURFS_FAILURE:
+  case ADD_SMURF_FAILURE:
     return {...state,
             isFetching: false,
             error: action.error};
-  case ADD_SMURFS_SUCCESS:
+  case ADD_SMURF_SUCCESS:
     return {...state,
             isFetching: false,
             smurfs: [...state.smurfs, action.smurf]};
